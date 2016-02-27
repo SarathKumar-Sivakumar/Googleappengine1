@@ -1,0 +1,21 @@
+application: cloudwebstorage
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /
+  script: login.php
+
+- url: /upload
+  script: upload.php
+
+# Serve php scripts.
+- url: /(.+\.php)$
+  script: \1
+
